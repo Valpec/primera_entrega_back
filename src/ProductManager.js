@@ -1,5 +1,4 @@
 import fs from "fs";
-import Product from "./product.js";
 import path from "path";
 import { fileURLToPath } from 'url';
 
@@ -21,30 +20,7 @@ class ProductManager {
         return id;
     }
 
-    validateProduct = async(producto)=>{
-        try {
-            const productInstance = new Product(
-                producto.title,
-                producto.description,
-                producto.code,
-                producto.price,
-                producto.status,
-                producto.stock,
-                producto.category,
-                producto.thumbnails
-            )
-                return true
-        } catch (error) {
-            console.error(`Error en los datos del producto: ${error}`)
-            return false
-        }
-    }
-
     addProduct = async (producto) => {
-        let validated = await this.validateProduct(producto)
-        if(!validated){
-            throw new Error("Datos del producto invalidos")
-        }
         let existingProducts = await this.getProducts()
 
             if (!Object.values(producto).includes(undefined) &&
@@ -63,7 +39,7 @@ class ProductManager {
                     console.error(`Error escribiendo el archivo: ${error}`);
                 }
             }else{
-                console.log("Codigo repetido o campos vacios")
+                throw new Error("Codigo repetido o campos vacios")
             }
         
     }

@@ -38,7 +38,7 @@ router.post('/', async (req, res) => {
         await productManager.addProduct(prod)
         res.status(201).send({message: "Producto agregado con exito"});
     }catch(error){
-        res.status(400).send({ error: "400", message: "La informaicon del producto no es correcta" })
+        res.status(400).send({ error: "400", message:`Error: ${error}` })
     }
 })
 
