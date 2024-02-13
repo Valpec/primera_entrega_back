@@ -12,18 +12,18 @@ class CartManager {
 
     generateId = async (existingCarts) => {
         let id
-        do{
+        do {
             id = Math.floor(Math.random() * 100000);
-        }while(existingCarts.find((cart)=> cart.id == id))
+        } while (existingCarts.find((cart) => cart.id == id))
         return id;
     }
 
     createCart = async () => {
         let existingCarts = await this.readCartFile()
         let cartId = await this.generateId(existingCarts)
-        let newCart = {id:cartId, products:[]}
+        let newCart = { id: cartId, products: [] }
         this.carts.push(...existingCarts, newCart)
-        try{
+        try {
             await this.fs.promises.writeFile(
                 this.path,
                 JSON.stringify(this.carts, null, 2, '\t')
@@ -32,53 +32,51 @@ class CartManager {
         catch (error) {
             console.error(`Error escribiendo el archivo: ${error}`);
         }
-
     }
 
-    readCartFile = async()=>{
-        try{
+    readCartFile = async () => {
+        try {
             let cartsFromFile = await this.fs.promises.readFile(this.path, "utf-8");
             return JSON.parse(cartsFromFile)
-        } catch (error){
+        } catch (error) {
             console.error(`Error leyendo el archivo: ${error}`);
-
         }
-        }
-        
+    }
 
-    listCartProds = async(cid)=>{
+
+    listCartProds = async (cid) => {
 
         let cartsFromFile = await this.readCartFile()
         let cart = cartsFromFile.find((c) => c.id === cid)
-        if(cart){
+        if (cart) {
             console.log('cart found')
             return cart.products
 
-        }else{
+        } else {
             console.log('cart not found')
         }
-        
+
     }
 
-    addToCart = async(cid, pid) =>{
+    addToCart = async (cid, pid) => {
         let cartsFromFile = await this.readCartFile()
-        // si no existe, error de que no existe
+
         let cart = cartsFromFile.find((c) => c.id === cid)
-        let productFromCart = cart.products.find((prod)=> prod.product === pid)
-        if (productFromCart){
-            productFromCart.quantity ++
-        }else{
-            cart.products.push({product: pid, quantity: 1})
+        let productFromCart = cart.products.find((prod) => prod.product === pid)
+        if (productFromCart) {
+            productFromCart.quantity++
+        } else {
+            cart.products.push({ product: pid, quantity: 1 })
         }
-        try{
+        try {
             await this.fs.promises.writeFile(
                 this.path,
                 JSON.stringify(cartsFromFile, null, 2, '\t'))
-        } catch(error) {
+        } catch (error) {
             console.error(`Error escribiendo el archivo: ${error}`);
-            
+
         }
-        
+
     }
 
 }

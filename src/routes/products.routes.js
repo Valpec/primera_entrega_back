@@ -33,33 +33,33 @@ router.get('/:pid', async (req, res) => {
 })
 
 router.post('/', async (req, res) => {
-    try{
+    try {
         let prod = req.body
         await productManager.addProduct(prod)
-        res.status(201).send({message: "Producto agregado con exito"});
-    }catch(error){
-        res.status(400).send({ error: "400", message:`Error: ${error}` })
+        res.status(201).send({ message: "Producto agregado con exito" });
+    } catch (error) {
+        res.status(400).send({ error: "400", message: `Error: ${error}` })
     }
 })
 
 
-router.put('/:pid', (req, res) => {
+router.put('/:pid', async (req, res) => {
     try {
         let pid = parseInt(req.params.pid)
         let prod = req.body
-        productManager.updateProduct(pid, prod)
-        res.status(201).send({ message: "Producto actualizado con exito" });
-
+        await productManager.updateProduct(pid, prod)
+        res.status(200).send({ message: "Producto actualizado con exito" });
     } catch (error) {
         res.status(400).send({ error: "400", message: "El id es invalido o no existe." });
     }
 
+
 })
 
-router.delete('/:pid', (req, res) => {
+router.delete('/:pid', async (req, res) => {
     try {
         let pid = parseInt(req.params.pid)
-        productManager.deleteProduct(pid)
+        await productManager.deleteProduct(pid)
         res.status(200).send({ message: "Producto eliminado con exito" });
     } catch (error) {
         res.status(400).send({ error: "400", message: "El id es invalido o no existe." });

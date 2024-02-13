@@ -22,25 +22,13 @@
     "id": 17375
   },
   {
-    "title": "Vela Copon",
+    "title": "Vela Coaaapon",
     "description": "Vela",
-    "code": "",
     "price": 3500,
-    "status": true,
+    "thumbnail": "vela_copon.jpg",
+    "code": "vc35ddaaaaa00",
     "stock": 1,
-    "category": "Velas",
-    "thumbnails": "vela_copon.jpg",
-    "id": 75294
-  },
-  {
-    "title": "Vela Copon",
-    "description": "Vela",
-    "code": "1",
-    "price": 3500,
     "status": true,
-    "stock": 1,
-    "category": "Velas",
-    "thumbnails": "vela_copon.jpg",
-    "id": 11376
+    "id": 8210
   }
 ]
