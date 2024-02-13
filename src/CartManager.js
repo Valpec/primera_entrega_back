@@ -1,8 +1,12 @@
 import fs from "fs";
+import path from "path";
+import { fileURLToPath } from 'url';
+
 class CartManager {
     constructor() {
+        const __dirname = path.dirname(fileURLToPath(import.meta.url))
         this.carts = [];
-        this.path = "./files/carritos.json"
+        this.path = path.resolve(__dirname, "files", "carritos.json")
         this.fs = fs
     }
 

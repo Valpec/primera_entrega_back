@@ -1,10 +1,14 @@
 import fs from "fs";
 import Product from "./product.js";
+import path from "path";
+import { fileURLToPath } from 'url';
 
 class ProductManager {
     constructor() {
+        const __dirname = path.dirname(fileURLToPath(import.meta.url))
+
         this.products = [];
-        this.path = "./files/productos.json";
+        this.path = path.resolve(__dirname, "files", "productos.json")
 
         this.fs = fs
     }
