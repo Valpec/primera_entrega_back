@@ -1,0 +1,65 @@
+[
+  {
+    "title": "Vela Copon",
+    "description": "Vela",
+    "code": "ndaaso",
+    "price": 3500,
+    "status": true,
+    "stock": 1,
+    "category": "Velas",
+    "thumbnails": "vela_copon.jpg",
+    "id": 60383
+  },
+  {
+    "title": "Vela Copon",
+    "code": "ndaasao",
+    "price": 3500,
+    "status": true,
+    "stock": 1,
+    "category": "Velas",
+    "thumbnails": "vela_copon.jpg",
+    "id": 95015
+  },
+  {
+    "title": "Vela Copon",
+    "description": "Vela",
+    "code": "ndaaaaso",
+    "price": 3500,
+    "status": true,
+    "stock": 1,
+    "category": "Velas",
+    "thumbnails": "vela_copon.jpg",
+    "id": 44232
+  },
+  {
+    "title": "Vela Copon",
+    "code": "ndaaaadso",
+    "price": 3500,
+    "status": true,
+    "stock": 1,
+    "category": "Velas",
+    "thumbnails": "vela_copon.jpg",
+    "id": 58526
+  },
+  {
+    "title": "Vela Copon",
+    "code": "ndaaaaadso",
+    "price": 3500,
+    "status": true,
+    "stock": 1,
+    "category": "Velas",
+    "thumbnails": "vela_copon.jpg",
+    "id": 28900
+  },
+  {
+    "title": "Vela Copon",
+    "description": "Vela",
+    "code": "ndaaaaaso",
+    "price": 3500,
+    "status": true,
+    "stock": 1,
+    "category": "Velas",
+    "thumbnails": "vela_copon.jpg",
+    "id": 82678
+  }
+]
